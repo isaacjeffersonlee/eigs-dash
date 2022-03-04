@@ -2,6 +2,9 @@
 
 ### Author: Isaac Lee
 
+## The App
+https://eigs.herokuapp.com/
+
 ## Summary
 A little Dash web app to calculate the eigenvalues,
 eigenvectors and JCF decomposition for a given matrix.
