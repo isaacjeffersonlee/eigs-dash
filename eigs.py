@@ -13,6 +13,8 @@ server = app.server
 
 app.layout = html.Div([
     html.H1('Eigenvalues and Eigenvectors', id='title'),
+    html.H4('Author: Isaac Lee | Source: https://github.com/isaacjeffersonlee/eigs-dash',
+        id='author-and-source-subtitle'),
     html.H2('Matrix Input', id='matrix-input-subtitle'),
     dcc.Textarea(
         id='matrix-input',
