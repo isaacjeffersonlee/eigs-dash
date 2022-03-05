@@ -7,7 +7,8 @@ https://eigs.herokuapp.com/
 
 ## Summary
 A little Dash web app to calculate the eigenvalues,
-eigenvectors and JCF decomposition for a given matrix.
+eigenvectors characteristic polynomial, minimal polynomial and
+JCF decomposition for a given matrix.
 
 ## Input
 ```
