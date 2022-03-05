@@ -36,7 +36,8 @@ app.layout = html.Div([
             "display": "inline-block",
             "font-size": "20px",
             "margin-top": "20px",
-            "margin-bottom": "20px"
+            "margin-bottom": "20px",
+            'font': my_font
         }
     ),
     dcc.Loading(
