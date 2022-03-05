@@ -26,19 +26,20 @@ app.layout = html.Div([
     html.Button('Run', 
         id='run-button',
         n_clicks=0,
-        style={
-            "background-color": "#000000",
-            "border": "none",
-            "color": "white",
-            "padding": "10px 50px",
-            "text-align": "center",
-            "text-decoration": "none",
-            "display": "inline-block",
-            "font-size": "20px",
-            "margin-top": "20px",
-            "margin-bottom": "20px",
-            'font': my_font
-        }
+        className="my-button"
+        # style={
+        #     "background-color": "#000000",
+        #     "border": "none",
+        #     "color": "white",
+        #     "padding": "10px 50px",
+        #     "text-align": "center",
+        #     "text-decoration": "none",
+        #     "display": "inline-block",
+        #     "font-size": "20px",
+        #     "margin-top": "20px",
+        #     "margin-bottom": "20px",
+        #     'font': my_font
+        # }
     ),
     dcc.Loading(
         id="loading-spinner",
