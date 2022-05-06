@@ -20,7 +20,7 @@ app.layout = html.Div([
     html.H2('Matrix Input', id='matrix-input-subtitle'),
     dcc.Textarea(
         id='matrix-input',
-        value='[1 2 3; 0 1 5; 0 0 -2]',
+        value='1 2 3; 0 1 5; 0 0 -2',
         style={'width': '100%', 'height': 200, 'font': my_font}
     ),
     html.Button('Run', 
@@ -61,20 +61,21 @@ app.layout = html.Div([
     State(component_id='matrix-input', component_property='value')
 )
 def update_output(n_clicks, value):
+    A = value.replace('\n', ' ')  # Replace newline chars with a space
+    A = A.split('; ')
+    A = [[sp.sympify(a) for a in row.split(' ')] for row in A]
     # Prevent callback errors when we aren't finished inputing our matrix
     try:
-        A = np.matrix(value)
+        x = sp.Symbol('x')
+        A = sp.Matrix(A)
         n, m = A.shape  # Get dimensions of the matrix
         if n != m:
             return "Matrix must be square!"
     except (ValueError, SyntaxError):
-        return "Not a valid input! Only use Ints or Floats!"
+        return "Input Error!"
     else:
-        A = sp.Matrix(A)  # Conver to sympy matrix
         return_str = 'Input Matrix:\n'
         return_str += sp.pretty(A) + '\n' * 2
-
-        x = sp.symbols('x')
         char_poly = A.charpoly(x).as_expr()
         return_str += "Characteristic Polynomial Expanded: "\
             f"{str(char_poly).replace('**', '^').replace('*', '')}" + '\n'
