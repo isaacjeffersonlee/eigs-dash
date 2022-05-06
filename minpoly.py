@@ -72,8 +72,9 @@ def generate_powers(alg_mult):
 
         power_combinations.append(combination)
     
-    # Sort the powers by length of array
+    # Sort the powers by euclidean length of array
     power_combinations.sort(key=lambda comb: np.linalg.norm(comb))
+
     return power_combinations
     
 
@@ -99,7 +100,7 @@ def get_min_poly(A):
         if not min_poly_powers:
             raise ValueError("Minimal Polynomial could not be found!")
 
-        min_poly = 1 
+        min_poly = 1
         for i in range(len(factors)):
             min_poly *= factors[i]**min_poly_powers[i]
 
